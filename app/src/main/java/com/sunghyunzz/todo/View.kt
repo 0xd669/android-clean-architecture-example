@@ -5,7 +5,7 @@ import io.reactivex.disposables.CompositeDisposable
 import java.time.LocalDateTime
 
 
-interface TodosView : AddTodo, GetTodos, TodoGatewayImpl, TodoDaoProvider, TodosPresenter, TodosController {
+interface TodosView : AddTodo, GetTodos, TodosPresenter, TodosController {
 
     val compositeDisposable: CompositeDisposable
 
