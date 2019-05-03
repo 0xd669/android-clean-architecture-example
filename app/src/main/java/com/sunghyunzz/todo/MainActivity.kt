@@ -2,6 +2,7 @@ package com.sunghyunzz.todo
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -17,7 +18,8 @@ class MainActivity : AppCompatActivity(), TodoGatewayImpl, TodoDaoProvider, Todo
         get() = AppDatabase.getInstance(this).todosDao()
 
     override fun renderTodos(vm: TodosViewModel) {
-        someTextView.text = vm.statusDescription
+        todoList.adapter = TodoAdapter(vm.todos)
+        todoList.layoutManager = LinearLayoutManager(applicationContext)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
