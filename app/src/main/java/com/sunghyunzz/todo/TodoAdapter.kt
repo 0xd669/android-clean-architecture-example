@@ -10,7 +10,7 @@ class TodoAdapter(vm: List<TodoViewModel>) : RecyclerView.Adapter<TodoAdapter.To
     private val todoList : List<TodoViewModel> = vm
 
     class TodoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        var todoDescription = view.findViewById(R.id.todoDescription) as TextView
+        val todoDescription = view.findViewById(R.id.todoDescription) as TextView
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodoViewHolder {
