@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class TodoAdapter(vm: TodosViewModel) : RecyclerView.Adapter<TodoAdapter.TodoViewHolder>(){
-    private var todoList : TodosViewModel = vm
+class TodoAdapter(vm: List<TodoViewModel>) : RecyclerView.Adapter<TodoAdapter.TodoViewHolder>(){
+    private val todoList : List<TodoViewModel> = vm
 
     class TodoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var todoDescription = view.findViewById(R.id.todoDescription) as TextView
@@ -19,11 +19,11 @@ class TodoAdapter(vm: TodosViewModel) : RecyclerView.Adapter<TodoAdapter.TodoVie
     }
 
     override fun getItemCount(): Int {
-        return todoList.todos.size
+        return todoList.size
     }
 
     override fun onBindViewHolder(holder: TodoViewHolder, position: Int) {
-        val todoVO = todoList.todos[position]
+        val todoVO = todoList[position]
 
         holder.todoDescription.text = todoVO.shortDescription
     }

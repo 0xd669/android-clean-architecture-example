@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity(), TodoGatewayImpl, TodoDaoProvider, Todo
         get() = AppDatabase.getInstance(this).todosDao()
 
     override fun renderTodos(vm: TodosViewModel) {
-        todoList.adapter = TodoAdapter(vm)
+        todoList.adapter = TodoAdapter(vm.todos)
         todoList.layoutManager = LinearLayoutManager(applicationContext)
     }
 
